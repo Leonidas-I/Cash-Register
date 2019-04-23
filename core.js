@@ -28,14 +28,14 @@ function checkCashRegister(price, cash, cid) {
           refund = remainder + max - cidRevFil[i][1];
         }
         else {
-          cashBack.change.push([cidRevFil[i][0], max]);
+          cashBack.change.push([cidRevFil[i][0], max]);      //all while() doing here is like u refund in real life 
           refund = remainder;
         }
       }
       else refund = remainder;
       i++;
     }
-    let cidTotal = cidRevFil.reduce((total, num, i) => total + cidRevFil[i][1], 0);
+    let cidTotal = cidRevFil.reduce((total, num, i) => total + cidRevFil[i][1], 0);   //total money u have in cid
     console.log(refund);
     if (cidTotal < cash - price || refund != 0) {
       cashBack.status = 'INSUFFICIENT_FUNDS';
