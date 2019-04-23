@@ -1,6 +1,6 @@
 function checkCashRegister(price, cash, cid) {
     let refund = cash - price,
-        cidRevFil = [...cid].reverse().filter(item => item[1] > 0); //reverse cash-in-drawer array then filter item have value > 0$
+        cidRevFil = [...cid].reverse().filter(item => item[1] > 0);          //reverse cash-in-drawer array then filter item have value > 0$
   
     // Here is your change, ma'am.
     let cashBack = {status: "", change: []};
@@ -19,9 +19,9 @@ function checkCashRegister(price, cash, cid) {
         remainder = 0,
         i = 0;
     while (i < cidRevFil.length) {
-      quotient = Math.floor(refund/currency[cidRevFil[i][0]]);  //u know what code doing here right ?
-      remainder = Math.round((refund*100) % (currency[cidRevFil[i][0]]*100))/100;
-      if (quotient != 0) {                                                           //think like how u refund in the real life
+      quotient = Math.floor(refund/currency[cidRevFil[i][0]]);                        //u know what code doing here right ?
+      remainder = Math.round((refund*100) % (currency[cidRevFil[i][0]]*100))/100;     //modify this line yourselft & use console.log()
+      if (quotient != 0) {                                                           // to see what happen with % operator
         let max = quotient * currency[cidRevFil[i][0]];
         if (max > cidRevFil[i][1]) {
           cashBack.change.push(cidRevFil[i]);
